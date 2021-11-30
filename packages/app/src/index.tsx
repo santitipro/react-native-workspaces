@@ -1,21 +1,16 @@
-import React from 'react';
-import { Image, Platform, SafeAreaView, Text, View } from 'react-native';
-import LogoSrc from './logo.png';
-import styles from './styles';
+import React, { useEffect } from "react";
+import { DomainEvent, EventBus, Events } from "@eccco/events";
+import Authentication from "@eccco/authentication";
 
 function App(): React.ReactElement {
-  return (
-    <SafeAreaView style={styles.root}>
-      <Image style={styles.logo} source={LogoSrc} />
-      <Text style={styles.text}>Hello from React Native!</Text>
-      <View style={styles.platformRow}>
-        <Text style={styles.text}>Platform: </Text>
-        <View style={styles.platformBackground}>
-          <Text style={styles.platformValue}>{Platform.OS}</Text>
-        </View>
-      </View>
-    </SafeAreaView>
-  );
+  useEffect(() => {
+    const onUserLoggedIn = (event: DomainEvent): void => {
+      console.warn(event);
+    };
+    EventBus.subscribe(Events.USER_LOGGED, onUserLoggedIn);
+  }, []);
+
+  return <Authentication />;
 }
 
 export default App;
