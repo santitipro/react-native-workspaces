@@ -6,12 +6,14 @@
   "workspaces": {
     "packages": [
       "packages/*",
+      "packages/modules/*",
       "packages/shared/*"
     ],
     "nohoist": [
       "**/@react-native-async-storage/async-storage",
       "**/@react-navigation/native",
       "**/@react-navigation/native-stack",
+      "**/@react-navigation/bottom-tabs",
       "**/react",
       "**/react-native",
       "**/react-native/**",

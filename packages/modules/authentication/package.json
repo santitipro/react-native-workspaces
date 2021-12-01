@@ -5,22 +5,20 @@
   "private": true,
   "license": "MIT",
   "peerDependencies": {
-    "@react-native-async-storage/async-storage": "^1.15.13",
-    "@react-navigation/native": "^6.0.6",
-    "@react-navigation/native-stack": "^6.2.5",
+    "@react-native-async-storage/async-storage": "*",
+    "@react-navigation/bottom-tabs": "*",
+    "@react-navigation/native": "*",
+    "@react-navigation/native-stack": "*",
     "react": "*",
-    "react-native": "",
-    "react-native-safe-area-context": "^3.3.2",
-    "react-native-screens": "^3.9.0"
+    "react-native": "*"
   },
   "devDependencies": {
     "@react-native-async-storage/async-storage": "*",
+    "@react-navigation/bottom-tabs": "*",
     "@react-navigation/native": "*",
     "@react-navigation/native-stack": "*",
     "@types/react": "^17.0.31",
     "@types/react-native": "^0.65.10",
-    "react-native-safe-area-context": "*",
-    "react-native-screens": "*",
     "typescript": "^4.4.4"
   }
 }

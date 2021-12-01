@@ -10,8 +10,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@eccco/app": "*",
     "@react-native-async-storage/async-storage": "^1.15.9",
+    "@react-navigation/bottom-tabs": "^6.0.9",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
     "inversify": "^6.0.1",
@@ -20,8 +20,8 @@
     "mobx-react": "^7.2.1",
     "react": "17.0.2",
     "react-native": "0.66.1",
-    "react-native-safe-area-context": "^3.3.2",
-    "react-native-screens": "^3.9.0",
+    "react-native-safe-area-context": "3.3.2",
+    "react-native-screens": "3.9.0",
     "reflect-metadata": "^0.1.13",
     "styled-components": "^5.3.3"
   },
@@ -35,6 +35,10 @@
     "metro-react-native-babel-preset": "^0.66.2",
     "react-native-monorepo-tools": "^1.1.1",
     "react-test-renderer": "17.0.2"
+  },
+  "resolutions": {
+    "react-native-safe-area-context": "3.3.2",
+    "react-native-screens": "3.9.0"
   },
   "jest": {
     "preset": "react-native"
