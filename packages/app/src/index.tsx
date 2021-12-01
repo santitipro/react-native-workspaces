@@ -1,20 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { DomainEvent, EventBus, Events } from "@eccco/events";
+import React from "react";
+import { Provider } from "mobx-react";
 
-import Navigator from "./navigation";
+import stores from "./store";
+import App from "./app";
 
-function App(): React.ReactElement {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-
-  useEffect(() => {
-    const onUserLoggedIn = (event: DomainEvent): void => {
-      console.warn(event);
-      setIsLoggedIn(true);
-    };
-    EventBus.subscribe(Events.USER_LOGGED, onUserLoggedIn);
-  }, []);
-
-  return <Navigator />;
+function RootConfig(): React.ReactElement {
+  return (
+    <Provider {...stores}>
+      <App />
+    </Provider>
+  );
 }
 
-export default App;
+export default RootConfig;

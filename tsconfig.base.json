@@ -11,6 +11,8 @@
     "noEmit": true,
     "resolveJsonModule": true,
     "strict": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     // Solves https://github.com/DefinitelyTyped/DefinitelyTyped/issues/16825
     "skipLibCheck": true,
     "target": "esnext"

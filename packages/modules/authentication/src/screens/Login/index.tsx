@@ -1,9 +1,10 @@
 import React from "react";
 import { View, Button, Text } from "react-native";
 
-import { EventBus, DomainEvent, Events } from "@eccco/events";
+import { EventBus } from "@eccco/events";
 import { NavigationProp } from "../../navigation/types";
 import { Routes } from "../../constants/routes";
+import { UserLoggedDomainEvent } from "../../events";
 
 type Props = {
   navigation: NavigationProp<Routes.Login>;
@@ -12,9 +13,9 @@ type Props = {
 function Login({ navigation }: Props): JSX.Element {
   const handleSubmit = (): void => {
     EventBus.publish(
-      new DomainEvent({
-        eventName: Events.USER_LOGGED,
-        payload: { email: "test@mailinator.com" },
+      new UserLoggedDomainEvent({
+        id: Math.random().toString(),
+        email: "test@mailinator.com",
       })
     );
   };

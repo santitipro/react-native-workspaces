@@ -10,7 +10,7 @@ class EventBusImpl implements EventBus {
     this.eventBus = new events.EventEmitter();
   }
 
-  subscribe(eventName: Events, callback: CallbackEvent): void {
+  subscribe<T extends IDomainEvent>(eventName: Events, callback: CallbackEvent<T>): void {
     this.eventBus.on(eventName, callback);
   }
 
@@ -18,7 +18,7 @@ class EventBusImpl implements EventBus {
     this.eventBus.emit(event.eventName, event);
   }
 
-  unsubscribe(eventName: Events, callback: CallbackEvent): void {
+  unsubscribe(eventName: Events, callback: CallbackEvent<IDomainEvent>): void {
     this.eventBus.removeListener(eventName, callback);
   }
 }
