@@ -18,7 +18,7 @@ class EventBusImpl implements EventBus {
     this.eventBus.emit(event.eventName, event);
   }
 
-  unsubscribe(eventName: Events, callback: CallbackEvent<IDomainEvent>): void {
+  unsubscribe<T extends IDomainEvent>(eventName: Events, callback: CallbackEvent<T>): void {
     this.eventBus.removeListener(eventName, callback);
   }
 }

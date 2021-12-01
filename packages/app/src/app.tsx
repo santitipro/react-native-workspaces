@@ -16,6 +16,10 @@ function App({ auth }: Props): React.ReactElement {
       auth?.setIsLoggedIn({ id: event.id, email: event.email });
     };
     EventBus.subscribe(Events.USER_LOGGED, onUserLoggedIn);
+
+    return () => {
+      EventBus.unsubscribe(Events.USER_LOGGED, onUserLoggedIn);
+    };
   }, []);
 
   return (
