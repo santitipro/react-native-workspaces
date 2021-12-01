@@ -1,9 +1,15 @@
 import React from "react";
-import { View, Button } from "react-native";
+import { View, Button, Text } from "react-native";
 
 import { EventBus, DomainEvent, Events } from "@eccco/events";
+import { NavigationProp } from "../../navigation/types";
+import { Routes } from "../../constants/routes";
 
-function Login(): JSX.Element {
+type Props = {
+  navigation: NavigationProp<Routes.Login>;
+};
+
+function Login({ navigation }: Props): JSX.Element {
   const handleSubmit = (): void => {
     EventBus.publish(
       new DomainEvent({
@@ -13,10 +19,28 @@ function Login(): JSX.Element {
     );
   };
 
+  const handleRegister = () => navigation.navigate(Routes.Register);
+
   return (
     <View style={{ flex: 1 }}>
-      <View style={{ flex: 1, justifyContent: "flex-end", margin: 10 }}>
-        <Button title="Logged In!" onPress={handleSubmit} />
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <View
+          style={{
+            width: "90%",
+            height: 250,
+            borderWidth: 1,
+            borderColor: "grey",
+          }}
+        ></View>
+      </View>
+      <View style={{ margin: 10 }}>
+        <Text
+          style={{ textAlign: "center", marginBottom: 20 }}
+          onPress={handleRegister}
+        >
+          Not have account ? Register
+        </Text>
+        <Button title="Log In" onPress={handleSubmit} />
       </View>
     </View>
   );
